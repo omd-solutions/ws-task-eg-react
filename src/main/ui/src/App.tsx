@@ -10,6 +10,7 @@ const App: React.FC = () => {
                     <Typography variant="h6">
                         Task Manager
                     </Typography>
+                    <div style={{flexGrow: 1}} />
                     <Button color="inherit"
                             onClick={() => {
                                 fetch("/api/start-task").then(() => console.log("Task Started"))

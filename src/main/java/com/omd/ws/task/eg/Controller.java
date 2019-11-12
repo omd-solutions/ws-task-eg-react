@@ -32,21 +32,15 @@ public class Controller {
     class ArbitraryTask implements ExecutableTask {
 
         private Random random = new Random();
-        private long endTime;
 
         @Override
         public void run(TaskContext context) throws Exception {
-            //Every job between 30 - 90 seconds
-            int runtimeSecs = random.nextInt(59) + 31;
-            endTime = System.currentTimeMillis() + (runtimeSecs * 1000);
-            double progress = 0d;
-
-            while(System.currentTimeMillis() < endTime) {
+            int progress = 0;
+            while(progress < 100) {
                 try {
-                    Thread.sleep(2000);
-                    double progressRemaining = 100d - progress;
-                    double progressToAdd = random.nextDouble() / progressRemaining;
-                    context.addProgress("Added " + BigDecimal.valueOf(progressToAdd).setScale(2, RoundingMode.HALF_EVEN).toString() + "% to progress", progressToAdd);
+                    Thread.sleep(1000);
+                    int progressToAdd = random.nextInt(20);
+                    context.addProgress("Added " + progressToAdd + "% to progress", progressToAdd);
                     progress += progressToAdd;
                 } catch (InterruptedException e) {
                     //Would produce task error

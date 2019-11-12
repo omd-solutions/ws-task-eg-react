@@ -2,6 +2,10 @@
 .idea/
 *.iml
 
+#Yalc
+.yalc/
+yalc.lock
+
 # Compiled class file
 *.class
 
