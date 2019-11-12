@@ -1,5 +1,5 @@
 #Intellij
-.idea
+.idea/
 *.iml
 
 # Compiled class file
@@ -96,7 +96,8 @@ typings/
 /coverage
 
 # production
-/build
+build/
+dist/
 
 # misc
 .DS_Store
